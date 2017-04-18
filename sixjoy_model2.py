@@ -11,7 +11,7 @@ def bias_variable(shape):
 
 n_input = 2400 # 30 * 80
 n_out = 2 # Steer and Speed
-dropout = 0.75 
+dropout = 0.75
 
 x = tf.placeholder(tf.float32, shape = [None,30,80])
 x_image = tf.reshape(x, shape = [-1,n_input])
