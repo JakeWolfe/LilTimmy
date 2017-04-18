@@ -15,7 +15,6 @@ import cv2
 print('Start Training Process')
 print('Load Data')
 
-# J: TODO make this inputable to allow for testing
 num_out = 2
 image_length = 2400
 
@@ -48,9 +47,6 @@ total_lines = 0
 with open("training_data/data.txt") as f:
 	for line in f:
 		xs.append("training_images/" + line.split()[0])
-        #the paper by Nvidia uses the inverse of the turning radius,
-        #but steering wheel angle is proportional to the inverse of turning radius
-        #so the steering wheel angle in radians is used as the output
 		y1s.append(float(line.split()[1]))
 		y2s.append(float(line.split()[2]))
 		total_lines += 1
@@ -77,10 +73,4 @@ if not os.path.exists(LOGDIR):
     os.makedirs(LOGDIR)
 checkpoint_path = os.path.join(LOGDIR, "model.ckpt")
 filename = saver.save(sess, checkpoint_path)
-
-
-
-
-# J: TODO add testing computation
-# J: Might add timing information
 

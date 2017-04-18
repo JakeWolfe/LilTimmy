@@ -11,7 +11,7 @@ def bias_variable(shape):
 
 n_input = 2400 # 30 * 80
 n_out = 2 # Steer and Speed
-dropout = 0.75
+dropout = 0.75 
 
 x = tf.placeholder(tf.float32, shape = [None,30,80])
 x_image = tf.reshape(x, shape = [-1,n_input])
@@ -25,7 +25,6 @@ W_fc1 = weight_variable([n_input, 100])
 b_fc1 = bias_variable([100])
 
 h_fc1 = tf.nn.tanh(tf.matmul(x_image, W_fc1) + b_fc1)
-
 h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
 
 #FCL 2
@@ -41,6 +40,7 @@ b_fc3 = bias_variable([25])
 
 h_fc3 = tf.nn.tanh(tf.matmul(h_fc2_drop, W_fc3) + b_fc3)
 h_fc3_drop = tf.nn.dropout(h_fc3, keep_prob)
+
 #FCL 4
 W_fc4 = weight_variable([25, n_out])
 b_fc4 = bias_variable([n_out])

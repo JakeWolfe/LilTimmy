@@ -26,7 +26,7 @@ print "Done Open"
 
 num_images = len(xs)
 
-#Shuffle that shit
+#Shuffle the data
 c = list(zip(xs, y1s, y2s))
 random.shuffle(c)
 xs, y1s, y2s = zip(*c)
